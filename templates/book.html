@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Book
+{% endblock title %}
+
+{% block body %}
+{% load static %}
+
+<section class="book" id="book">
+
+    <h1 class="heading"> <span>book</span> now </h1>    
+  
+    <div class="row">
+  
+        <div class="image">
+          <img src="{% static 'book-img.svg' %}">
+            
+        </div>
+  
+        <form action="/book" method="post">
+          {%csrf_token%}
+            <h3>book appointment</h3>
+            <input type="text" placeholder="Enter your name" name="name" class="box">
+            <input type="email" placeholder="Enter your email" name="email" class="box">
+            <input type="number" placeholder="Enter your number" name="number" class="box">
+           
+            
+            <textarea class="box" placeholder="Tell us why you want to book the appointment?" name="desc"></textarea>
+            
+            <input type="date" name="date"class="box">
+            <input type="submit" value="book now" class="btn">
+        </form>
+  
+    </div>
+  
+  </section>
+  
+{% endblock body %}
